@@ -1,6 +1,8 @@
 import React from 'react';
 import { ScrollView, SafeAreaView, Text, TextInput, View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import IconCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import LinearGradient from "react-native-linear-gradient";
 
 const Restaurant = () => {
 
@@ -92,31 +94,55 @@ const Restaurant = () => {
             <View style={styles.containerWaysToDeliver}>
               <View style={styles.coupledWaysToDeliver}>
                 <View style={styles.waysToDeliver}>
-                  <View style={styles.cyrcleIcon}></View>
+                  <LinearGradient
+                    colors={['#e2f5ea', 'white']}
+                    style={styles.circleIcon}>
+                    <IconCommunity name='food' size={20} color='black' />
+                  </LinearGradient>
                   <Text style={styles.textWaysToDeliver}>Delivery</Text>
                 </View>
                 <View style={styles.waysToDeliver}>
-                  <View style={styles.cyrcleIcon}></View>
+                  <LinearGradient
+                    colors={['#e2f5ea', 'white']}
+                    style={styles.circleIcon}>
+                    <IconCommunity name='truck-delivery' size={20} color='black'  />
+                  </LinearGradient>
                   <Text style={styles.textWaysToDeliver}>Bargain</Text>
                 </View>
               </View>
               <View style={styles.coupledWaysToDeliver}>
                 <View style={styles.waysToDeliver}>
-                  <View style={styles.cyrcleIcon}></View>
+                  <LinearGradient
+                    colors={['#e2f5ea', 'white']}
+                    style={styles.circleIcon}>
+                    <IconCommunity name='food-takeout-box' size={20} color='black'  />
+                  </LinearGradient>
                   <Text style={styles.textWaysToDeliver}>Take Away</Text>
                 </View>
                 <View style={styles.waysToDeliver}>
-                  <View style={styles.cyrcleIcon}></View>
+                  <LinearGradient
+                    colors={['#e2f5ea', 'white']}
+                    style={styles.circleIcon}>
+                    <MaterialIcon name='people' size={20} color='black' style={{}} />
+                  </LinearGradient>
                   <Text style={styles.textWaysToDeliver}>Invite Friends</Text>
                 </View>
               </View>
               <View style={styles.coupledWaysToDeliver}>
                 <View style={styles.waysToDeliver}>
-                  <View style={styles.cyrcleIcon}></View>
+                  <LinearGradient
+                    colors={['#e2f5ea', 'white']}
+                    style={styles.circleIcon}>
+                    <MaterialIcon name='table-restaurant' size={20} color='black'  />
+                  </LinearGradient>
                   <Text style={styles.textWaysToDeliver}>Dine In</Text>
                 </View>
                 <View style={styles.waysToDeliver}>
-                  <View style={styles.cyrcleIcon}></View>
+                  <LinearGradient
+                    colors={['#e2f5ea', 'white']}
+                    style={styles.circleIcon}>
+                    <MaterialIcon name='business-center' size={20} color='black' />
+                  </LinearGradient>
                   <Text style={styles.textWaysToDeliver}>Corporate</Text>
                 </View>
               </View>
@@ -170,7 +196,6 @@ const Restaurant = () => {
                     </Text>
                   </TouchableOpacity>
                 </View>
-                  {/* Rest of the banner containers */}
                 </View>
               </ScrollView>
             </View>
@@ -193,7 +218,7 @@ const Restaurant = () => {
                 }}>
                 <Image
                   source={{
-                    uri: 'https://reactnative.dev/img/tiny_logo.png',
+                    uri: 'https://citynews-cibotoday.stgy.ovh/~media/square-hi/62867486759336/coquinarius-fiesole-2.jpg',
                   }}
                   style={{width: 90, height: 90, borderRadius: 8}}
                 />
@@ -250,7 +275,7 @@ const Restaurant = () => {
               style={{
                 width: '85%',
                 marginHorizontal: 'auto',
-                marginBottom: 65,
+                marginBottom: 95,
               }}
               horizontal={true}>
               <View style={{flexDirection: 'row', gap: 12}}>
@@ -412,13 +437,14 @@ const Restaurant = () => {
 
 const styles = StyleSheet.create({
 
-  cyrcleIcon: {
+  circleIcon: {
     width: 45,
     height: 45,
     borderRadius: 50,
-    backgroundColor: '#e2f5ea',
     borderColor: '#2eb065',
     borderWidth: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   textWaysToDeliver: {
     fontSize: 12,

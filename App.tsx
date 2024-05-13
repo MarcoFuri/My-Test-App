@@ -6,8 +6,8 @@ import { SafeAreaView } from "react-native";
 function App(): React.JSX.Element {
   return (
     <SafeAreaView style={{flex: 1}}>
-      { false && <Restaurant /> }
-      { true && <Bank /> }
+      { true && <Restaurant /> }
+      { false && <Bank /> }
     </SafeAreaView>
   );
 }
