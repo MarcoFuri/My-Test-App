@@ -1,4 +1,3 @@
-import React from 'react';
 import { ScrollView, SafeAreaView, Text, TextInput, View, Image, TouchableOpacity, StyleSheet, FlatList, ImageBackground } from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
 import IconFontAwesome6 from 'react-native-vector-icons/FontAwesome6';
@@ -76,7 +75,7 @@ const Bank = () => {
   const priceUsd = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'})
 
 return (
-  <SafeAreaView style={{flex: 1}}>
+  <>
     <View
       style={{
         width: '90%',
@@ -84,6 +83,7 @@ return (
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        marginTop: 14,
       }}>
       <View>
         <Text style={{ fontSize: 26, fontWeight: 700 }}>
@@ -173,6 +173,7 @@ return (
     </View>
     <FlatList
       data = {data}
+      style={{marginBottom: 5}}
       renderItem={({ item }) => (
         <View style={[styles.listElement]}>
           <View>
@@ -186,14 +187,14 @@ return (
         </View>
       )}
     />
-  </SafeAreaView>
+  </>
 );
 }
 
 const styles = StyleSheet.create({
   listElement: {
     flex: 1,
-    backgroundColor: '#f3f3f3',
+    backgroundColor: 'white',
     height: 80,
     flexDirection: 'row',
     justifyContent: 'space-between',

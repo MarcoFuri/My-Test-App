@@ -1,8 +1,18 @@
-import React from 'react';
-import { ScrollView, SafeAreaView, Text, TextInput, View, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  ScrollView,
+  SafeAreaView,
+  Text,
+  TextInput,
+  View,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  ImageBackground
+} from "react-native";
 import IconCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from "react-native-linear-gradient";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Restaurant = () => {
 
@@ -56,6 +66,8 @@ const Restaurant = () => {
       rating: 4.5,
     },
   ];
+
+  const Stack = createNativeStackNavigator()
 
   return (
     <>
@@ -155,8 +167,12 @@ const Restaurant = () => {
                 }}
                 horizontal={true}>
                 <View style={{flexDirection: 'row', gap: 10}}>
-                  <View style={styles.bannerContainer}>
-                    <Text style={{fontSize: 25, color: '#2eb065'}}>
+                  <ImageBackground
+                    source={{
+                      uri: 'https://citynews-cibotoday.stgy.ovh/~media/square-hi/62867486759336/coquinarius-fiesole-2.jpg'
+                    }}
+                    style={styles.bannerContainer}>
+                    <Text style={{fontSize: 30, fontWeight: 900, color: '#ecba26'}}>
                       50% OFF
                     </Text>
                     <TouchableOpacity
@@ -166,37 +182,55 @@ const Restaurant = () => {
                         Buy Now
                       </Text>
                     </TouchableOpacity>
-                  </View><View style={styles.bannerContainer}>
-                  <Text style={{fontSize: 25, color: '#2eb065'}}>
-                    50% OFF
-                  </Text>
-                  <TouchableOpacity style={styles.buyNowButton}>
-                    <Text
-                      style={{color: 'black', fontSize: 12, fontWeight: 700}}>
-                      Buy Now
+                  </ImageBackground>
+                  <ImageBackground
+                    source={{
+                      uri: 'https://citynews-cibotoday.stgy.ovh/~media/square-hi/62867486759336/coquinarius-fiesole-2.jpg'
+                    }}
+                    style={styles.bannerContainer}>
+                    <Text style={{fontSize: 30, fontWeight: 900, color: '#ecba26'}}>
+                      50% OFF
                     </Text>
-                  </TouchableOpacity>
-                </View><View style={styles.bannerContainer}>
-                  <Text style={{fontSize: 25, color: '#2eb065'}}>
-                    50% OFF
-                  </Text>
-                  <TouchableOpacity style={styles.buyNowButton}>
-                    <Text
-                      style={{color: 'black', fontSize: 12, fontWeight: 700}}>
-                      Buy Now
+                    <TouchableOpacity
+                      style={styles.buyNowButton}>
+                      <Text
+                        style={{color: 'black', fontSize: 12, fontWeight: 700}}>
+                        Buy Now
+                      </Text>
+                    </TouchableOpacity>
+                  </ImageBackground>
+                  <ImageBackground
+                    source={{
+                      uri: 'https://citynews-cibotoday.stgy.ovh/~media/square-hi/62867486759336/coquinarius-fiesole-2.jpg'
+                    }}
+                    style={styles.bannerContainer}>
+                    <Text style={{fontSize: 30, fontWeight: 900, color: '#ecba26'}}>
+                      50% OFF
                     </Text>
-                  </TouchableOpacity>
-                </View><View style={styles.bannerContainer}>
-                  <Text style={{fontSize: 25, color: '#2eb065'}}>
-                    50% OFF
-                  </Text>
-                  <TouchableOpacity style={styles.buyNowButton}>
-                    <Text
-                      style={{color: 'black', fontSize: 12, fontWeight: 700}}>
-                      Buy Now
+                    <TouchableOpacity
+                      style={styles.buyNowButton}>
+                      <Text
+                        style={{color: 'black', fontSize: 12, fontWeight: 700}}>
+                        Buy Now
+                      </Text>
+                    </TouchableOpacity>
+                  </ImageBackground>
+                  <ImageBackground
+                    source={{
+                      uri: 'https://citynews-cibotoday.stgy.ovh/~media/square-hi/62867486759336/coquinarius-fiesole-2.jpg'
+                    }}
+                    style={styles.bannerContainer}>
+                    <Text style={{fontSize: 30, fontWeight: 900, color: '#ecba26'}}>
+                      50% OFF
                     </Text>
-                  </TouchableOpacity>
-                </View>
+                    <TouchableOpacity
+                      style={styles.buyNowButton}>
+                      <Text
+                        style={{color: 'black', fontSize: 12, fontWeight: 700}}>
+                        Buy Now
+                      </Text>
+                    </TouchableOpacity>
+                  </ImageBackground>
                 </View>
               </ScrollView>
             </View>
@@ -281,121 +315,171 @@ const Restaurant = () => {
               }}
               horizontal={true}>
               <View style={{flexDirection: 'row', gap: 12}}>
-                <View style={styles.topPickedContainer}>
-                  <Text style={{fontSize: 14, fontWeight: 700, color: '#2eb065'}}>
+                <ImageBackground
+                  source={{
+                    uri: 'https://www.shutterstock.com/image-photo/healthy-food-clean-eating-selection-600nw-722718082.jpg'
+                  }}
+                  style={styles.topPickedContainer}>
+                  <Text style={{fontSize: 18, fontWeight: 900, color: 'white'}}>
                     Char Kway Teow
                   </Text>
                   <View style={styles.breakfastTopPick}>
                     <Text style={styles.breakfastTopPickText}>Breakfast</Text>
                   </View>
                   <View style={{marginTop: 10}}>
-                    <Text
+                    <View
                       style={{
-                        fontSize: 12,
-                        fontWeight: 700,
                         position: 'absolute',
                         end: 0,
+                        flexDirection: 'row',
+                        alignItems: 'center',
                       }}>
-                      * 4.8
-                    </Text>
+                      <MaterialIcon name='star' color='#ecba26' size={18} />
+                      <Text style={{
+                        color: 'white',
+                        fontWeight: 800,
+                      }}>
+                        4.8
+                      </Text>
+                    </View>
                     <Text
-                      style={{color: '#5ebb86', fontSize: 12, fontWeight: 700}}>
+                      style={{color: '#5ebb86', fontSize: 14, fontWeight: 900}}>
                       12 Reviews
                     </Text>
                   </View>
-                </View>
-                <View style={styles.topPickedContainer}>
-                  <Text style={{fontSize: 14, fontWeight: 700, color: '#2eb065'}}>
+                </ImageBackground>
+                <ImageBackground
+                  source={{
+                    uri: 'https://www.shutterstock.com/image-photo/healthy-food-clean-eating-selection-600nw-722718082.jpg'
+                  }}
+                  style={styles.topPickedContainer}>
+                  <Text style={{fontSize: 18, fontWeight: 900, color: 'white'}}>
                     Char Kway Teow
                   </Text>
                   <View style={styles.breakfastTopPick}>
                     <Text style={styles.breakfastTopPickText}>Breakfast</Text>
                   </View>
                   <View style={{marginTop: 10}}>
-                    <Text
+                    <View
                       style={{
-                        fontSize: 12,
-                        fontWeight: 700,
                         position: 'absolute',
                         end: 0,
+                        flexDirection: 'row',
+                        alignItems: 'center',
                       }}>
-                      * 4.8
-                    </Text>
+                      <MaterialIcon name='star' color='#ecba26' size={18} />
+                      <Text style={{
+                        color: 'white',
+                        fontWeight: 800,
+                      }}>
+                        4.8
+                      </Text>
+                    </View>
                     <Text
-                      style={{color: '#5ebb86', fontSize: 12, fontWeight: 700}}>
+                      style={{color: '#5ebb86', fontSize: 14, fontWeight: 900}}>
                       12 Reviews
                     </Text>
                   </View>
-                </View>
-                <View style={styles.topPickedContainer}>
-                  <Text style={{fontSize: 14, fontWeight: 700, color: '#2eb065'}}>
+                </ImageBackground>
+                <ImageBackground
+                  source={{
+                    uri: 'https://www.shutterstock.com/image-photo/healthy-food-clean-eating-selection-600nw-722718082.jpg'
+                  }}
+                  style={styles.topPickedContainer}>
+                  <Text style={{fontSize: 18, fontWeight: 900, color: 'white'}}>
                     Char Kway Teow
                   </Text>
                   <View style={styles.breakfastTopPick}>
                     <Text style={styles.breakfastTopPickText}>Breakfast</Text>
                   </View>
                   <View style={{marginTop: 10}}>
-                    <Text
+                    <View
                       style={{
-                        fontSize: 12,
-                        fontWeight: 700,
                         position: 'absolute',
                         end: 0,
+                        flexDirection: 'row',
+                        alignItems: 'center',
                       }}>
-                      * 4.8
-                    </Text>
+                      <MaterialIcon name='star' color='#ecba26' size={18} />
+                      <Text style={{
+                        color: 'white',
+                        fontWeight: 800,
+                      }}>
+                        4.8
+                      </Text>
+                    </View>
                     <Text
-                      style={{color: '#5ebb86', fontSize: 12, fontWeight: 700}}>
+                      style={{color: '#5ebb86', fontSize: 14, fontWeight: 900}}>
                       12 Reviews
                     </Text>
                   </View>
-                </View>
-                <View style={styles.topPickedContainer}>
-                  <Text style={{fontSize: 14, fontWeight: 700, color: '#2eb065'}}>
+                </ImageBackground>
+                <ImageBackground
+                  source={{
+                    uri: 'https://www.shutterstock.com/image-photo/healthy-food-clean-eating-selection-600nw-722718082.jpg'
+                  }}
+                  style={styles.topPickedContainer}>
+                  <Text style={{fontSize: 18, fontWeight: 900, color: 'white'}}>
                     Char Kway Teow
                   </Text>
                   <View style={styles.breakfastTopPick}>
                     <Text style={styles.breakfastTopPickText}>Breakfast</Text>
                   </View>
                   <View style={{marginTop: 10}}>
-                    <Text
+                    <View
                       style={{
-                        fontSize: 12,
-                        fontWeight: 700,
                         position: 'absolute',
                         end: 0,
+                        flexDirection: 'row',
+                        alignItems: 'center',
                       }}>
-                      * 4.8
-                    </Text>
+                      <MaterialIcon name='star' color='#ecba26' size={18} />
+                      <Text style={{
+                        color: 'white',
+                        fontWeight: 800,
+                      }}>
+                        4.8
+                      </Text>
+                    </View>
                     <Text
-                      style={{color: '#5ebb86', fontSize: 12, fontWeight: 700}}>
+                      style={{color: '#5ebb86', fontSize: 14, fontWeight: 900}}>
                       12 Reviews
                     </Text>
                   </View>
-                </View>
-                <View style={styles.topPickedContainer}>
-                  <Text style={{fontSize: 14, fontWeight: 700, color: '#2eb065'}}>
+                </ImageBackground>
+                <ImageBackground
+                  source={{
+                    uri: 'https://www.shutterstock.com/image-photo/healthy-food-clean-eating-selection-600nw-722718082.jpg'
+                  }}
+                  style={styles.topPickedContainer}>
+                  <Text style={{fontSize: 18, fontWeight: 900, color: 'white'}}>
                     Char Kway Teow
                   </Text>
                   <View style={styles.breakfastTopPick}>
                     <Text style={styles.breakfastTopPickText}>Breakfast</Text>
                   </View>
                   <View style={{marginTop: 10}}>
-                    <Text
+                    <View
                       style={{
-                        fontSize: 12,
-                        fontWeight: 700,
                         position: 'absolute',
                         end: 0,
+                        flexDirection: 'row',
+                        alignItems: 'center',
                       }}>
-                      * 4.8
-                    </Text>
+                      <MaterialIcon name='star' color='#ecba26' size={18} />
+                      <Text style={{
+                        color: 'white',
+                        fontWeight: 800,
+                      }}>
+                        4.8
+                      </Text>
+                    </View>
                     <Text
-                      style={{color: '#5ebb86', fontSize: 12, fontWeight: 700}}>
+                      style={{color: '#5ebb86', fontSize: 14, fontWeight: 900}}>
                       12 Reviews
                     </Text>
                   </View>
-                </View>
+                </ImageBackground>
               </View>
             </ScrollView>
           </SafeAreaView>
@@ -460,6 +544,7 @@ const styles = StyleSheet.create({
     height: 200,
     backgroundColor: '#e2f5ea',
     borderRadius: 8,
+    overflow: 'hidden',
     padding: 20,
     justifyContent: 'flex-end',
   },
@@ -469,9 +554,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'flex-end',
-    paddingBottom: 20,
+    paddingBottom: 30,
     backgroundColor: '#e2f5ea',
     borderRadius: 8,
+    overflow: 'hidden'
   },
   buyNowButton: {
     backgroundColor: 'white',
