@@ -159,7 +159,8 @@ const Restaurant = () => {
                     <Text style={{fontSize: 25, color: '#2eb065'}}>
                       50% OFF
                     </Text>
-                    <TouchableOpacity style={styles.buyNowButton}>
+                    <TouchableOpacity
+                      style={styles.buyNowButton}>
                       <Text
                         style={{color: 'black', fontSize: 12, fontWeight: 700}}>
                         Buy Now
@@ -207,14 +208,15 @@ const Restaurant = () => {
               <View
                 key={item.key}
                 style={{
-                  width: '85%',
+                  width: '90%',
                   marginHorizontal: 'auto',
                   flexDirection: 'row',
-                  marginTop: 18,
+                  marginTop: 8,
+                  padding: 15,
                   gap: 12,
-                  borderBottomWidth: 0.2,
-                  borderColor: 'grey',
                   paddingBottom: 15,
+                  backgroundColor: 'white',
+                  borderRadius: 8,
                 }}>
                 <Image
                   source={{
@@ -273,9 +275,9 @@ const Restaurant = () => {
             </View>
             <ScrollView
               style={{
-                width: '85%',
+                width: '90%',
                 marginHorizontal: 'auto',
-                marginBottom: 95,
+                marginBottom: 15,
               }}
               horizontal={true}>
               <View style={{flexDirection: 'row', gap: 12}}>
@@ -399,38 +401,6 @@ const Restaurant = () => {
           </SafeAreaView>
         </View>
       </ScrollView>
-      <View
-        style={{
-          width: '100%',
-          height: 85,
-          position: 'absolute',
-          bottom: 0,
-          backgroundColor: 'rgba(248, 255, 255, 1)',
-          borderWidth: 2,
-          borderColor: '#ebebeb',
-        }}>
-        <View
-          style={{
-            width: '90%',
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            marginTop: 20,
-            marginHorizontal: 'auto',
-          }}>
-          <View>
-            <Text style={styles.footerText}>HOME</Text>
-          </View>
-          <View>
-            <Text style={styles.footerText}>HISTORY</Text>
-          </View>
-          <View>
-            <Text style={styles.footerText}>NOTIFICATION</Text>
-          </View>
-          <View>
-            <Text style={styles.footerText}>ACCOUNT</Text>
-          </View>
-        </View>
-      </View>
     </>
   );
 }
