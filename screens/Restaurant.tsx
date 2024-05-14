@@ -285,15 +285,21 @@ const Restaurant = () => {
                       style={{color: '#5ebb86', fontSize: 12, fontWeight: 700}}>
                       {item.reviews}
                     </Text>
-                    <Text
+                    <View
                       style={{
-                        fontSize: 12,
-                        fontWeight: 700,
                         position: 'absolute',
                         end: 0,
+                        flexDirection: 'row',
+                        alignItems: 'center'
                       }}>
-                      * {item.rating}
-                    </Text>
+                      <MaterialIcon name='star' color='#ecba26' size={18} />
+                      <Text style={{
+                        fontSize: 12,
+                        fontWeight: 700,
+                      }}>
+                        {item.rating}
+                      </Text>
+                    </View>
                   </View>
                 </View>
               </View>
