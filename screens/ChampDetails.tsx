@@ -1,6 +1,16 @@
-import { Image, ImageBackground, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  ImageBackground,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from "react-native";
 import { useEffect, useState } from "react";
 import IconMaterial from 'react-native-vector-icons/MaterialCommunityIcons';
+import { VersionLink } from "../Links/VersionLink.tsx";
 
 export interface ChampDetails {
   name: string,
@@ -25,7 +35,7 @@ const ChampDetails = ({route} : any) => {
 
 
   useEffect(() => {
-    fetch(`https://ddragon.leagueoflegends.com/cdn/14.9.1/data/en_US/champion/${champName}.json`)
+    fetch(VersionLink + `data/en_US/champion/${champName}.json`)
       .then(res => res.json())
       .then(data => {
         console.log(data.data[champName])
@@ -38,19 +48,19 @@ const ChampDetails = ({route} : any) => {
       <ScrollView>
         <Image
           source={{uri: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champName}_0.jpg`}}
-          style={{width: '100%', height: 300, position: 'absolute', zIndex: -1}}
+          style={styles.mainImageStyle}
         />
-        <View style={{backgroundColor: 'rgba(0,0,0,0.85)', padding: 24, marginHorizontal: 10, borderWidth: 0.2, borderColor: 'grey', marginTop: 200, borderRadius: 2}}>
-          <Text style={{fontSize: 26, fontWeight: 900, color: 'white', fontStyle: 'italic'}}>{champ?.name.toUpperCase()}</Text>
-          <Text style={{fontSize: 16, fontWeight: 700, color: 'white', fontStyle: 'italic'}}>{champ?.title.toUpperCase()}</Text>
-          <View style={{flexDirection: 'row', marginVertical: 25, justifyContent: 'space-around'}}>
+        <View style={styles.infoContainerStyle}>
+          <Text style={styles.champNameStyle}>{champ?.name.toUpperCase()}</Text>
+          <Text style={styles.champTitleStyle}>{champ?.title.toUpperCase()}</Text>
+          <View style={styles.champDescriptionContainerStyle}>
             <View>
-              <Text style={{fontSize: 14, fontWeight: 800, color: 'rgba(255,255,255,0.8)', fontStyle: 'italic'}}>ROLE:</Text>
-              <Text style={{fontWeight: 600, color: 'rgba(255,255,255,0.7)', fontStyle: 'italic'}}>{champ?.tags.join(',')}</Text>
+              <Text style={styles.mainInfoStyle}>ROLE:</Text>
+              <Text style={styles.mainInfoTextStyle}>{champ?.tags.join(',')}</Text>
             </View>
             <View>
-              <Text style={{fontSize: 14, fontWeight: 800, color: 'rgba(255,255,255,0.8)', fontStyle: 'italic'}}>DIFFICULTY:</Text>
-              <Text style={{fontWeight: 600, color: 'rgba(255,255,255,0.7)', fontStyle: 'italic'}}>{champ?.info.difficulty}/10</Text>
+              <Text style={styles.mainInfoStyle}>DIFFICULTY:</Text>
+              <Text style={styles.mainInfoTextStyle}>{champ?.info.difficulty}/10</Text>
             </View>
           </View>
           <View>
@@ -63,7 +73,7 @@ const ChampDetails = ({route} : any) => {
             {champ?.spells.map((spell, index) => (
               <TouchableOpacity
                 key={index}
-                style={{width: '40%', alignItems: 'center', margin: 10}}
+                style={{width: '40%', alignItems: 'center', margin: 15}}
               >
                 <Image
                   source={{uri:`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/spell/${spell.image.full}`}}
@@ -80,7 +90,7 @@ const ChampDetails = ({route} : any) => {
             style={{alignItems: 'center', margin: 15}}
           >
             <Image
-              source={{uri:`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/passive/${champ?.passive.image.full}`}}
+              source={{uri:`https://ddragon.leagueoflegends.com/cdn/14.10.1/img/passive/${champ?.passive.image.full}`}}
               style={{width: 80, height: 80, borderRadius: 8, marginVertical: 15}}
             />
             <Text style={{color: 'rgba(255,255,255,0.7)', fontWeight: 600, fontStyle: 'italic'}}>
@@ -104,5 +114,51 @@ const ChampDetails = ({route} : any) => {
     </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+  mainImageStyle: {
+    width: '100%',
+    height: 300,
+    position: 'absolute',
+    zIndex: -1
+  },
+  infoContainerStyle: {
+    backgroundColor: 'rgba(0,0,0,0.85)',
+    padding: 24,
+    marginHorizontal: 10,
+    borderWidth: 0.2,
+    borderColor: 'grey',
+    marginTop: 200,
+    borderRadius: 2
+  },
+  champNameStyle: {
+    fontSize: 26,
+    fontWeight: 900,
+    color: 'white',
+    fontStyle: 'italic'
+  },
+  champTitleStyle: {
+    fontSize: 16,
+    fontWeight: 700,
+    color: 'white',
+    fontStyle: 'italic'
+  },
+  champDescriptionContainerStyle: {
+    flexDirection: 'row',
+    marginVertical: 25,
+    justifyContent: 'space-around'
+  },
+  mainInfoStyle: {
+    fontSize: 14,
+    fontWeight: 800,
+    color: 'rgba(255,255,255,0.8)',
+    fontStyle: 'italic'
+  },
+  mainInfoTextStyle: {
+    fontWeight: 600,
+    color: 'rgba(255,255,255,0.7)',
+    fontStyle: 'italic'
+  }
+})
 
 export default ChampDetails;

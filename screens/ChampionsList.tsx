@@ -2,7 +2,7 @@ import { Key, useEffect, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
-  Image,
+  Image, ImageBackground,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -10,7 +10,7 @@ import {
   View
 } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-
+import { VersionLink } from "../Links/VersionLink.tsx";
 
 const ChampionsList = ({ navigation } : NativeStackScreenProps <any> ) => {
 
@@ -18,7 +18,7 @@ const ChampionsList = ({ navigation } : NativeStackScreenProps <any> ) => {
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    fetch("https://ddragon.leagueoflegends.com/cdn/14.9.1/data/en_US/champion.json")
+    fetch(VersionLink + 'data/en_US/champion.json')
       .then(res => res.json())
       .then(data => {
         const champs : string[] = [];
@@ -32,7 +32,7 @@ const ChampionsList = ({ navigation } : NativeStackScreenProps <any> ) => {
 
 
   const renderChamps = (champName : string) => {
-    let champImg = `https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${champName}.png`
+    let champImg = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champName}_0.jpg`
 
     return (
         <TouchableOpacity
@@ -56,7 +56,8 @@ const ChampionsList = ({ navigation } : NativeStackScreenProps <any> ) => {
           data={champsFetched}
           renderItem={({item, index}) => renderChamps(item)}
           horizontal={false}
-          numColumns={3}
+          numColumns={2}
+          style={{marginHorizontal: 10}}
         >
         </FlatList>
       }
@@ -67,25 +68,21 @@ const ChampionsList = ({ navigation } : NativeStackScreenProps <any> ) => {
 
 const styles = StyleSheet.create({
   touchableOpacityStyle: {
-    width: 80,
-    height: 100,
-    flex: 1,
-    alignItems: "center",
-    borderWidth: 1,
-    borderColor: "rgba(0, 0, 0, 0.1)",
-    borderRadius: 8,
-    margin: 3,
-    backgroundColor: '#3c3c3c',
+    flex:1,
+    height:170,
+    marginBottom: 20
   },
   touchableOpacityTextStyle: {
+    width: 200,
     fontWeight: '800',
-    color:'white'
+    color:'white',
+    fontSize: 16,
+    backgroundColor: '#022a4a',
+    padding: 6
   },
   touchableOpacityImageStyle: {
-    width: 60,
-    height: 60,
-    borderRadius: 8,
-    marginTop: 12
+    width:200,
+    height:'90%'
   },
   safeAreaViewStyle: {
     marginTop: 3
