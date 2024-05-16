@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Inicons from "react-native-vector-icons/Ionicons";
 import Restaurant from "./Restaurant.tsx";
 import ItemsList from "./ItemsList.tsx";
+import ItemDetails from "./ItemDetails.tsx";
 
 const NavigationLol = () => {
   const Stack = createNativeStackNavigator();
@@ -62,6 +63,11 @@ const NavigationLol = () => {
           name='ChampDetails'
           options={{title: 'Champion Details', headerBackTitle: 'Back'}}
           component={ChampDetails}
+        />
+        <Stack.Screen
+          name='ItemDetails'
+          options={{title: `Item's Detail`, headerBackTitle: 'Back'}}
+          component={ItemDetails}
         />
       </Stack.Navigator>
     </NavigationContainer>
