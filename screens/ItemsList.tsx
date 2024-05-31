@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     padding: 12,
     margin: 5,
     color: 'white',
-    borderRadius: 2
+    borderRadius: 8
   },
   filterTouchableOpacityStyle: {
     flex: 1,

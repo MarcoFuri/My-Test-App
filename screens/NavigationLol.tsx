@@ -8,6 +8,7 @@ import Inicons from "react-native-vector-icons/Ionicons";
 import Restaurant from "./Restaurant.tsx";
 import ItemsList from "./ItemsList.tsx";
 import ItemDetails from "./ItemDetails.tsx";
+import SearchProfile from "./SearchProfile.tsx";
 
 const NavigationLol = () => {
   const Stack = createNativeStackNavigator();
@@ -25,6 +26,8 @@ const NavigationLol = () => {
             iconName = focused ? 'list-circle-sharp' : 'list-circle-outline';
           } else if (route.name === 'ItemsList') {
             iconName = focused ? 'list-circle-sharp' : 'list-circle-outline';
+          } else if (route.name === 'SearchProfile') {
+            iconName = focused ? 'search-circle' : 'search-circle-outline';
           }
           // @ts-ignore
           return <Inicons name={iconName} size={20} color={color}/>
@@ -41,6 +44,11 @@ const NavigationLol = () => {
           name='ItemsList'
           options={{title: `ITEM'S LIST`}}
           component={ItemsList}
+        />
+        <Tab.Screen
+          name='SearchProfile'
+          options={{title: `SEARCH PROFILE`}}
+          component={SearchProfile}
         />
       </Tab.Navigator>
     )
